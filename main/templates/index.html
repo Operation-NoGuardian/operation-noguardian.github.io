@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href={% static 'favicon.svg' %}>
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    <title>Operation NoGuardian</title>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <div id="content">
+      <h2>Welcome to Operation NoGuardian</h2>
+      <div class="left-align">
+        <p>
+          What is Operation NoGuardian?<br>
+          We are working to put an end to GoGuardian 
+          (and mabye to some extent others like <a href="https://www.securly.com/" style="color: #ADD8E6">Securly</a>)
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
