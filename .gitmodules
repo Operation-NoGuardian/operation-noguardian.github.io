@@ -1,0 +1,3 @@
+[submodule "static/surf"]
+	path = static/surf
+	url = https://github.com/s0urce-c0de/MS-Edge-Surf.git
