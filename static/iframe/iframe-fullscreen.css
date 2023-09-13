@@ -1,0 +1,34 @@
+#fullscreen-frame-container iframe.fullscreen {
+  height: auto;
+  width: 100%;
+  border: none;
+  flex-grow: 1;
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#fullscreen-frame-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+button.fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 10px #ffffff;
+  border-radius: 10%;
+  transition: background-color 0.3s;
+  z-index: 999;
+}
+
+button.fullscreen-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    <link rel="stylesheet" href={% static 'iframe/iframe-fullscreen.css' %}>
+    <script src={% static 'iframe/iframe-fullscreen.js' %}></script>
+    <script>window.staticurl = "{% static '' %}";console.log(window.staticurl)</script>
+    <style>
+      #container {
+        overflow-x: hidden;
+      }
+      iframe {
+        padding-top: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <div id="fullscreen-frame-container">
+      <iframe src="/surf/frame" class="fullscreen add-fullscreen-button"></iframe>
+    </div>
+  </body>
+</html>
