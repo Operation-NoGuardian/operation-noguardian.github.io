@@ -1,5 +1,4 @@
 #fullscreen-frame-container iframe.fullscreen {
-  height: auto;
   width: 100%;
   border: none;
   flex-grow: 1;
@@ -9,12 +8,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-}
-
-#fullscreen-frame-container {
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
 
@@ -31,4 +24,9 @@ button.fullscreen-button {
 
 button.fullscreen-button:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.fullscreen-button-frame-container {
+  width: 100%;
+  height: 100%;
 }

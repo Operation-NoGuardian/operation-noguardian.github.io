@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Microsoft Edge Surf</title>
     <link rel="stylesheet" href={% static 'style.css' %}>
-    <link rel="stylesheet" href={% static 'iframe/iframe-fullscreen.css' %}>
-    <script src={% static 'iframe/iframe-fullscreen.js' %}></script>
-    <script>window.staticurl = "{% static '' %}";console.log(window.staticurl)</script>
+    {% include 'iframe-fullscreen.html' %}
     <style>
       #container {
         overflow-x: hidden;
@@ -14,11 +13,16 @@
       iframe {
         padding-top: 1px;
       }
+      #fullscreen-frame-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
-    {% include 'header.html' %}
     <div id="fullscreen-frame-container">
+    {% include 'header.html' %}
       <iframe src="/surf/frame" class="fullscreen add-fullscreen-button"></iframe>
     </div>
   </body>

@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Iterate over the iframe elements and append a button before each iframe
   for (var i = 0; i < iframes.length; i++) {
       var iframe = iframes[i];
+      var frame_clone=iframe.cloneNode(true)
+      var frame_styles=window.getComputedStyle(frame_clone);
 
       var image = document.createElement('img')
       image.src = `${window.staticurl}iframe/fullscreen.svg`
@@ -16,12 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
       var button = document.createElement('button');
       button.innerHTML = image.outerHTML;
       button.classList.add('fullscreen-button'); // Add the specific class
-      
+
+      var container = document.createElement('div');
+      container.classList.add("fullscreen-button-frame-container")
+      container.appendChild(frame_clone)
+      container.style.height=frame_styles['height'];
+      container.style.width=frame_styles['width'];
+
       // Insert the button before the iframe
-      iframe.insertAdjacentElement('beforebegin', button);
+      frame_clone.insertAdjacentElement('beforebegin', button);
+      iframe.replaceWith(container)
 
       button.addEventListener('click', function(ev) {
-        decideFullscreen(iframe, button, image)
+        decideFullscreen(container, button, image)
       })
   }
 });
@@ -29,28 +38,30 @@ document.addEventListener('DOMContentLoaded', function() {
 function decideFullscreen(frame, button, image=document.createElement('img')) {
   if (window.fullScreenFrame === null) {
     requestFullscreen(frame);
-    image.src = `${window.staticurl}iframe/ex;t-fullscreen.svg`
+    image.src = `${window.staticurl}iframe/exit-fullscreen.svg`
     button.innerHTML=image.outerHTML
+    window.fullScreenFrame = frame
   } else if (window.fullScreenFrame === frame) {
     exitFullscreen();
     image.src = `${window.staticurl}iframe/fullscreen.svg`
     button.innerHTML=image.outerHTML;
+    window.fullScreenFrame = null
   } else {
     window.alert("Sorry, right now a different IFrame is in fullscreen.")
   }
 }
 
 // Function to request fullscreen
-function requestFullscreen(iframe) {
+function requestFullscreen(element) {
   if (window.fullScreenFrame==null) {
-    if (iframe.requestFullscreen) {
-      iframe.requestFullscreen();
-    } else if (iframe.mozRequestFullScreen) {
-      iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) {
-      iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-      iframe.msRequestFullscreen();
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
     }
   }
 }
