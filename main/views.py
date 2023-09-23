@@ -1,20 +1,12 @@
-from django.shortcuts import render, redirect
-import json
+from django.shortcuts import render
 from pathlib import Path
+import json
+
 pardir = Path(__file__).resolve().parent
 # Create your views here.
-ctx_file = open(pardir / "context.json")
-ctx = json.loads(ctx_file.read())
-ctx_file.close()
+with open(pardir / "context.json") as ctx_file:
+  ctx = json.loads(ctx_file.read())
 del ctx_file
 
 def index(request):
   return render(request, "index.html", ctx)
-
-def surf(request):
-  return render(request, "surf.html", ctx)
-
-def surf_frame(request, path):
-  if path=='frame':
-    return render(request, "surf_frame.html", ctx)
-  return redirect(f'/static/surf/{path}')
