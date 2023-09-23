@@ -1,0 +1,7 @@
+{
+  "pages": {
+    "Home": "/",
+    "Let's Surf": "/games/surf",
+    "Champion Island": "/games/champion-island"
+    }
+}

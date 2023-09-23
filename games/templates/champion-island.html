@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Doodle Champion Island</title>
+    <link rel="stylesheet" href={% static 'style.css' %}>
+    {% include 'iframe-fullscreen.html' %}
+    <style>
+      #container {
+        overflow-x: hidden;
+      }
+      iframe {
+        padding-top: 1px;
+      }
+      #fullscreen-frame-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullscreen-frame-container">
+    {% include 'header.html' %}
+      <iframe src="frame" class="fullscreen add-fullscreen-button"></iframe>
+    </div>
+  </body>
+</html>
