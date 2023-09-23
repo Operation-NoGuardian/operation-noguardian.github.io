@@ -1,0 +1,7 @@
+[submodule "static/surf"]
+	path = static/surf
+	url = https://github.com/Operation-NoGuardian/MicrosoftEdge-S.U.R.F..git
+	branch = main
+[submodule "static/doodle-champion-island"]
+	path = static/doodle-champion-island
+	url = https://github.com/Operation-NoGuardian/Champion-Island
