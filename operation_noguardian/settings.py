@@ -29,7 +29,7 @@ try:
   SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 except:
   os.environ['DJANGO_SECRET_KEY']=SECRET_KEY=generate_key()
-  warnings.warn(f"No Secret Key Avalibe. To set one, set the enviornment\nvariable 'DJANGO_SECRET_KEY'. For now\nUsing \"{SECRET_KEY}\"", MISSING_SECRET_KEY)
+  warnings.warn(f"No Secret Key Available. To set one, set the enviornment\nvariable 'DJANGO_SECRET_KEY'. For now\nUsing \"{SECRET_KEY}\"", MISSING_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
